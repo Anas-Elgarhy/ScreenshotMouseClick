@@ -61,10 +61,8 @@ public class MainController {
 
     private void drawPointer(BufferedImage image, Point mousePoint) {
         Graphics2D g = image.createGraphics();
-        g.setColor(Color.RED);
         // Draw a mouse pointer
         g.drawImage(
-
                 new ImageIcon("src/main/resources/cursor1.png").getImage(),
                 mousePoint.x,
                 mousePoint.y,
