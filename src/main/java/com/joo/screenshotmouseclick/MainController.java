@@ -28,10 +28,11 @@ public class MainController {
     }
 
     public void saveScreenshots(File target, SAVE_MODE mode) throws IOException {
-        switch (mode) {
-            case PDF -> pdfController.createPDF(images.toArray(new BufferedImage[0]),
-                            target.getAbsolutePath(), target.getName());
-            case PNG -> saveScreenshotsAsImages(target.getAbsolutePath());
+        if (mode == SAVE_MODE.PDF) {
+            pdfController.createPDF(images.toArray(new BufferedImage[0]),
+                    target.getAbsolutePath(), target.getName());
+        } else {
+            saveScreenshotsAsImages(target.getAbsolutePath());
         }
     }
 
@@ -57,7 +58,7 @@ public class MainController {
     public void takeScreenshot(Point mousePoint){
        images.add(robot.createScreenCapture(capture));
        drawPointer(images.get(images.size()-1), mousePoint);
-        drawText(images.get(images.size()-1), "step"+images.size());
+       // drawText(images.get(images.size()-1), "step"+images.size());
     }
 
     private void drawPointer(BufferedImage image, Point mousePoint) {
