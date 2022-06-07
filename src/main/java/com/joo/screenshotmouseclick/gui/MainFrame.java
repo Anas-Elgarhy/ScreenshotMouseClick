@@ -17,13 +17,13 @@ public class MainFrame extends JFrame {
             openViewerButton,
             saveButton;
 
-    public MainFrame() {
+    public MainFrame(MainController mainController) {
         Debugger.setEnable(true); // Active debug mode
         setupTheFrame();
         setupTheButtons();
         addTheComponentsToTheFrame();
         setUpTheFont();
-        this.mainController = new MainController();
+        this.mainController = mainController;
         addTheListeners();
         super.pack();
         super.setLocationRelativeTo(null); // Center the frame on the screen

@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class MainController {
+public class MainController implements Runnable {
     private Robot robot;
     private ArrayList<BufferedImage> images;
     private PDFController pdfController;
@@ -112,5 +112,10 @@ public class MainController {
 
     public void stopRec() {
         running = false;
+    }
+
+    @Override
+    public void run() {
+
     }
 }
